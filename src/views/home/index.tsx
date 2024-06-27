@@ -1,16 +1,11 @@
-import { getCurrentDifficulty } from '@/api';
-
 const Index = () => {
     return (
-        <div
-            onClick={async () => {
-                const res = await getCurrentDifficulty({});
-                if (res) {
-                    console.log('res', res);
-                }
-            }}
-        >
-            <h1>starter page</h1>
+        <div>
+            <div className="card dark:text-dark w-96 shadow-xl">
+                <div className="card-body">
+                    <p>If a dog chews shoes whose shoes does he choose?</p>
+                </div>
+            </div>
         </div>
     );
 };

@@ -67,25 +67,16 @@ const mainTheme = createSlice({
     initialState: initialState,
     reducers: {
         toggleTheme(state, { payload }) {
+            const bodyNode = document.querySelector('body')
             payload = payload || state.theme; // light | dark | system
             localStorage.setItem('theme', payload);
             state.theme = payload;
-            if (payload === 'light') {
-                state.isDarkMode = false;
-            } else if (payload === 'dark') {
-                state.isDarkMode = true;
-            } else if (payload === 'system') {
-                if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-                    state.isDarkMode = true;
-                } else {
-                    state.isDarkMode = false;
-                }
-            }
+            state.isDarkMode = payload === 'light' ? false : true
 
             if (state.isDarkMode) {
-                document.querySelector('body')?.classList.add('dark');
+                bodyNode?.classList.add('dark');
             } else {
-                document.querySelector('body')?.classList.remove('dark');
+                bodyNode?.classList.remove('dark');
             }
         },
         toggleLayout(state, { payload }) {

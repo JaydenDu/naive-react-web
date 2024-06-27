@@ -1,8 +1,6 @@
-import { lazy } from 'react';
+import Home from '@/views/home';
 import { createBrowserRouter } from 'react-router-dom';
 import LayoutRoot from '../components/Layouts/LayoutRoot';
-
-const Home: any = lazy(() => import('../views/home/index'));
 
 const routes = [
     {
